@@ -1,6 +1,14 @@
 import React from "react";
-
-const ProductCard = ({name,image,id,price,amount,dumpingRate}) => {
+import axios from "axios";
+const ProductCard = ({name,image,id,price,amount,dumpingRate,getProducts}) => {
+  const deleteProduct = async()=>{
+    try {
+      await axios.delete(`https://658178db3dfdd1b11c435c4e.mockapi.io/products/${id}/`);
+    } catch (error) {
+      console.log(error);
+    }
+    getProducts()
+  }
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
@@ -40,7 +48,7 @@ const ProductCard = ({name,image,id,price,amount,dumpingRate}) => {
               </div>
             </div>
             <div className="product-removal mt-4">
-              <button className="btn btn-danger btn-sm w-100 remove-product">
+              <button className="btn btn-danger btn-sm w-100 remove-product" onClick={()=>deleteProduct(id)}>
                 <i className="fa-solid fa-trash-can me-2"></i>Remove
               </button>
             </div>

@@ -9,6 +9,7 @@ const ProductList = () => {
     try {
       const res= await axios("https://658178db3dfdd1b11c435c4e.mockapi.io/products")
   setProduct(res.data)
+
     } catch (error) {
       
     }
@@ -25,7 +26,7 @@ const ProductList = () => {
 
         <>
           <article id="product-panel" className="col-md-5">
-            {product?.map((item)=> (<ProductCard {...item}/>)) }
+            {product?.map((item)=> (<ProductCard {...item} getProducts={getProducts}/>)) }
            
           </article>
           <article className="col-md-5 m-3">
