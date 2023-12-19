@@ -1,12 +1,12 @@
 import React from "react";
 
-const ProductCard = () => {
+const ProductCard = ({name,image,id,price,amount,dumpingRate}) => {
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
         <div className="col-md-5">
           <img
-            src={"image"}
+            src={image}
             className="w-100 h-100 rounded-start"
             alt={"name"}
             height="250px"
@@ -16,13 +16,13 @@ const ProductCard = () => {
         <div className="col-md-7">
           <div className="card-body">
             <h5 className="card-title" role="button">
-              Ürün İsmi
+            {name}
             </h5>
             <div className="product-price">
               <p className="text-warning h2">
-                $<span className="damping-price">Fiyat</span>
+                $<span className="damping-price"> {price}</span>
                 <span className="h5 text-dark text-decoration-line-through">
-                  Asıl Fiyat
+                {price}
                 </span>
               </p>
             </div>
@@ -32,7 +32,7 @@ const ProductCard = () => {
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
-                  Miktar
+             {amount}
                 </p>
                 <button className="btn btn-secondary btn-sm">
                   <i className="fas fa-plus"></i>
