@@ -7,7 +7,7 @@ const Navbar = () => {
   <nav className="navbar navbar-expand-lg ">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">
-      Shopping Cart
+      Bookstore 
     </a>
     <button
       className="navbar-toggler"
@@ -29,12 +29,12 @@ const Navbar = () => {
         </li>
         <li className="nav-item">
           <NavLink to="/newproduct" className="nav-link" href="#">
-            New Product
+           Add New Book
           </NavLink>
         </li>
         <li className="nav-item">
           <NavLink to="/productlist" className="nav-link" href="#">
-            Product List
+            Book List
           </NavLink>
         </li>
         <li className="nav-item">

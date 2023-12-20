@@ -8,18 +8,16 @@ const About = () => {
           <div className="card p-3 py-4">
             <div className="text-center">
               <img
-                src="https://avatars.githubusercontent.com/u/93030628?v=4"
+                src="https://cdn.pixabay.com/photo/2012/04/03/13/31/books-25160_640.png"
                 width={100}
                 className="rounded-circle"
                 alt="a"
               />
             </div>
             <div className="text-center mt-3">
-              <span className="bg-secondary p-1 px-4 rounded text-white">
-                Pro
-              </span>
-              <h5 className="mt-2 mb-0">Anthony Harold</h5>
-              <span>Fullstack Developer</span>
+             
+              <h5 className="mt-2 mb-0">BookStore</h5>
+             
               <div className="px-4 mt-1">
                 <p className="fonts">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
@@ -32,9 +30,6 @@ const About = () => {
               <ul className="social-list">
                 <li>
                   <i className="fa-brands fa-facebook" />
-                </li>
-                <li>
-                  <i className="fa-brands fa-dribbble" />
                 </li>
                 <li>
                   <i className="fa-brands fa-instagram" />
@@ -58,7 +53,7 @@ const About = () => {
                 <button className="btn btn-primary px-4 ms-3">
                   <a
                     className="text-decoration-none text-white"
-                    href="https://github.com/anthonyharold67"
+                    href="#"
                     target="true">
                     Contact
                   </a>

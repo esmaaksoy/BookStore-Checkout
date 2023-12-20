@@ -41,11 +41,11 @@ const ProductForm = () => {
   };
   return (
     <article id="add-product" className="mb-4 mt-4">
-      <h1 className="text-center">Product</h1>
+      <h1 className="text-center">Add New Book </h1>
       <form className="p-2" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="add-name" className="form-label">
-            Product Name
+          Book Name
           </label>
           <input
             type="text"
@@ -59,7 +59,7 @@ const ProductForm = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="add-price" className="form-label">
-            Product Price
+           Book Price
           </label>
           <input
             type="number"
@@ -73,7 +73,7 @@ const ProductForm = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="add-quantity" className="form-label">
-            Product Quantity
+            Book Quantity
           </label>
           <input
             type="number"
@@ -86,7 +86,7 @@ const ProductForm = () => {
           />
         </div>
         <label htmlFor="add-image" className="form-label">
-          Product Image
+         Book Image
         </label>
         <div className="input-group mb-3">
           <span className="input-group-text" id="basic-addon3">
@@ -105,7 +105,7 @@ const ProductForm = () => {
         </div>
         <div className="text-center">
           <button type="submit" className="add-to-cart btn btn-success btn-sm">
-            <i className="fa-solid fa-cart-plus me-2"></i>Save To Product
+            <i className="fa-solid fa-book me-2"></i>Save To Book
           </button>
         </div>
       </form>
