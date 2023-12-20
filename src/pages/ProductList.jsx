@@ -36,12 +36,10 @@ const ProductList = () => {
     );
   };
 
-
-
   if (loading) {
     return (
       <div className="container mt-3 text-center">
-        <img src={loadingImage} alt="loading" />
+        <img src={loadingImage} alt="loading" className="w-25"/>
       </div>
     );
   } else if (product?.length === 0) {

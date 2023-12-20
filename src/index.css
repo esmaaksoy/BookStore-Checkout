@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +8,7 @@ body {
   background: #f1f2b5;
   background: -webkit-linear-gradient(to right, #135058, #f1f2b5);
   background: linear-gradient(to right, #135058, #f1f2b5) ;
- 
+  font-family: 'Whisper', cursive;
 }
 
 .main {
