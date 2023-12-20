@@ -1,20 +1,25 @@
+// name,image,id,price,amount,dumpingRate,
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const ProductCard = ({name,image,id,price,amount,dumpingRate,getProducts,updateTotal}) => {
+const ProductCard = ({getProducts,item,updateTotal}) => {
   const [total,setTotal]=useState("")
-  const[count,setCount] =useState(amount)
+  const[count,setCount] =useState(item.amount)
+
   const handleTotal=()=>{
-    setTotal(count * price)
-    updateTotal(id,total)
+    setTotal(count * item.price)
+    updateTotal(item.id, item.price * count)
   }
+
 
 useEffect(() => {
 handleTotal()
-}, [amount,price,count])
+}, [item.amount,item.price,count])
+
+
 
   const deleteProduct = async()=>{
     try {
-      await axios.delete(`https://658178db3dfdd1b11c435c4e.mockapi.io/products/${id}/`);
+      await axios.delete(`https://658178db3dfdd1b11c435c4e.mockapi.io/products/${item.id}/`);
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +30,7 @@ handleTotal()
       <div className="row g-0">
         <div className="col-md-5">
           <img
-            src={image}
+            src={item.image}
             className="w-100 h-100 rounded-start"
             alt={"name"}
             height="250px"
@@ -35,13 +40,13 @@ handleTotal()
         <div className="col-md-7">
           <div className="card-body">
             <h5 className="card-title" role="button">
-            {name}
+            {item.name}
             </h5>
             <div className="product-price">
               <p className="text-warning h2">
-                $<span className="damping-price">{price}</span>
+                $<span className="damping-price">{item.price}</span>
                 <span className="h5 text-dark text-decoration-line-through">
-                price
+              {Number(item.price) + Number(item.price * 0.8)}
                 </span>
               </p>
             </div>
@@ -59,7 +64,7 @@ handleTotal()
               </div>
             </div>
             <div className="product-removal mt-4">
-              <button className="btn btn-danger btn-sm w-100 remove-product" onClick={()=>deleteProduct(id)}>
+              <button className="btn btn-danger btn-sm w-100 remove-product" onClick={()=>deleteProduct(item.id)}>
                 <i className="fa-solid fa-trash-can me-2"></i>Remove
               </button>
             </div>

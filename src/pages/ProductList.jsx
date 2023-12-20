@@ -7,10 +7,10 @@ import loadingImage from "../assets/loading.gif";
 const ProductList = () => {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState();
-const [topTotal, setTopTotal] = useState(0);
-const updateTotal=(productId,productTotal)=>{
-  setTopTotal((prevTotal)=>prevTotal+ productTotal)
-}
+  const [topTotal, setTopTotal] = useState();
+  const updateTotal = (productId, productTotal) => {
+    setTopTotal(productTotal);
+  };
 
   const getProducts = async () => {
     setLoading(true);
@@ -29,6 +29,8 @@ const updateTotal=(productId,productTotal)=>{
   useEffect(() => {
     getProducts();
   }, []);
+
+
   if (loading) {
     return (
       <div className="container mt-3 text-center">
@@ -51,11 +53,15 @@ const updateTotal=(productId,productTotal)=>{
           <>
             <article id="product-panel" className="col-md-5">
               {product?.map((item) => (
-                <ProductCard {...item} getProducts={getProducts} updateTotal={updateTotal}/>
+                <ProductCard
+                  item={item}
+                  getProducts={getProducts}
+                  updateTotal={updateTotal}
+                />
               ))}
             </article>
             <article className="col-md-5 m-3">
-              <CardTotal topTotal={topTotal}/>
+              <CardTotal product={product} topTotal={topTotal} />
             </article>
           </>
         </div>
