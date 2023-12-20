@@ -53,7 +53,7 @@ const About = () => {
                 <button className="btn btn-primary px-4 ms-3">
                   <a
                     className="text-decoration-none text-white"
-                    href="#"
+                    href="https://github.com/esmaaksoy"
                     target="true">
                     Contact
                   </a>
