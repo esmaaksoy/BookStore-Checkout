@@ -46,7 +46,7 @@ handleTotal()
             {item.name}
             </h5>
             <div className="product-price">
-              <p className="text-warning h2">
+              <p className="text-success h2">
                 $<span className="damping-price">{item.price}</span>
                 <span className="h5 text-dark text-decoration-line-through">
               {Number(item.price) + Number(item.price * 0.8)}
@@ -67,7 +67,7 @@ handleTotal()
               </div>
             </div>
             <div className="product-removal mt-4">
-              <button className="btn btn-danger btn-sm w-100 remove-product" onClick={()=>deleteProduct(item.id)}>
+              <button className="btn btn-success btn-sm w-100 remove-product" onClick={()=>deleteProduct(item.id)}>
                 <i className="fa-solid fa-trash-can me-2"></i>Remove
               </button>
             </div>

@@ -46,8 +46,8 @@ const ProductList = () => {
     );
   } else if (product?.length === 0) {
     return (
-      <div className="container mt-3 border border-dark border-2 bg-dark">
-        <p className="text-center text-dark w-100 display-1 text-white">
+      <div className="container mt-3 rounded-5 bg-dark p-3">
+        <p className="text-center text-dark w-100 display-1 text-white ">
           No products data...
         </p>
       </div>

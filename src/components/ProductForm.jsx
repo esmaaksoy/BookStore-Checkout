@@ -22,10 +22,11 @@ const ProductForm = () => {
     amount: "",
     image: "",})
     Swal.fire({
-      text:"New product added.",
+      text:"New book added.",
       icon:"success",
       iconColor:"green",
       confirmButtonText:"ok",
+      confirmButtonColor:"green"
       })
   };
 
