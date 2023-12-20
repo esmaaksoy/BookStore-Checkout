@@ -4,7 +4,7 @@ const ProductForm = () => {
   const [data, setData] = useState({
     name: "",
     price: "",
-    amount: "",
+    amount: 1,
     image: "",
   });
   const handleData = (e) => {

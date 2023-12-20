@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-const ProductCard = ({name,image,id,price,amount,dumpingRate,getProducts}) => {
+const ProductCard = ({name,image,id,price,amount,dumpingRate,getProducts,updateTotal}) => {
+  const [total,setTotal]=useState("")
+  const[count,setCount] =useState(amount)
+  const handleTotal=()=>{
+    setTotal(count * price)
+    updateTotal(id,total)
+  }
+
+useEffect(() => {
+handleTotal()
+}, [amount,price,count])
+
   const deleteProduct = async()=>{
     try {
       await axios.delete(`https://658178db3dfdd1b11c435c4e.mockapi.io/products/${id}/`);
@@ -28,21 +39,21 @@ const ProductCard = ({name,image,id,price,amount,dumpingRate,getProducts}) => {
             </h5>
             <div className="product-price">
               <p className="text-warning h2">
-                $<span className="damping-price"> {price}</span>
+                $<span className="damping-price">{price}</span>
                 <span className="h5 text-dark text-decoration-line-through">
-                {price}
+                price
                 </span>
               </p>
             </div>
             <div className="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
               <div className="quantity-controller">
-                <button className="btn btn-secondary btn-sm">
+                <button className="btn btn-secondary btn-sm" onClick={()=>setCount(Number(count)- 1)}>
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
-             {amount}
+             {count}
                 </p>
-                <button className="btn btn-secondary btn-sm">
+                <button className="btn btn-secondary btn-sm" onClick={()=>setCount(Number(count)+ 1)}>
                   <i className="fas fa-plus"></i>
                 </button>
               </div>
@@ -53,7 +64,7 @@ const ProductCard = ({name,image,id,price,amount,dumpingRate,getProducts}) => {
               </button>
             </div>
             <div className="mt-2">
-              Product Total: $<span className="product-line-price">Total</span>
+              Product Total: $<span className="product-line-price">{total}</span>
             </div>
           </div>
         </div>
