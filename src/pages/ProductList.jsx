@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import ProductCard from "../components/ProductCard";
 import CardTotal from "../components/CardTotal";
 import axios from "axios";
@@ -7,11 +6,6 @@ import loadingImage from "../assets/loading.gif";
 const ProductList = () => {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState();
-  const [topTotal, setTopTotal] = useState();
-  const updateTotal = (productId, productTotal) => {
-    setTopTotal(productTotal);
-  };
-
   const getProducts = async () => {
     setLoading(true);
     try {
@@ -29,12 +23,6 @@ const ProductList = () => {
   useEffect(() => {
     getProducts();
   }, []);
-
-  const updateProductAmount = (productId, newAmount) => {
-    setProduct(product?.map((item) => item.id === productId ? { ...item, amount: newAmount } : item
-      )
-    );
-  };
 
   if (loading) {
     return (
@@ -60,13 +48,11 @@ const ProductList = () => {
                 <ProductCard
                   item={item}
                   getProducts={getProducts}
-                  updateTotal={updateTotal}
-                  updateProductAmount={updateProductAmount}
                 />
               ))}
             </article>
             <article className="col-md-5 m-3">
-              <CardTotal product={product} topTotal={topTotal} />
+              <CardTotal product={product} />
             </article>
           </>
         </div>

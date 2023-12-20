@@ -1,13 +1,10 @@
-import React from "react";
-
 const taxRate = 0.18;
 const shipping = 25;
-
-const CardTotal = ({product}) => {
- 
-  const subTotal = product?.map((item)=> Number(item.price) * Number(item.amount))
-const topTotal=subTotal?.reduce((acc,item)=>acc+item,0)
-
+const CardTotal = ({ product }) => {
+  const subTotal = product?.map(
+    (item) => Number(item.price) * Number(item.amount)
+  );
+  const topTotal = subTotal?.reduce((acc, item) => acc + item, 0);
   return (
     <table className="table w-100">
       <tbody>
@@ -34,10 +31,8 @@ const topTotal=subTotal?.reduce((acc,item)=>acc+item,0)
           <td>
             $
             <span className="total">
-            {Math.round(
-                topTotal +
-                  topTotal * taxRate +
-                  (topTotal > 900 ? 0 : shipping )
+              {Math.round(
+                topTotal + topTotal * taxRate + (topTotal > 900 ? 0 : shipping)
               )}
             </span>
           </td>
