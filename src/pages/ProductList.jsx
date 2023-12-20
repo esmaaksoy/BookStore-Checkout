@@ -46,7 +46,7 @@ const ProductList = () => {
     return (
       <div className="container mt-3 rounded-5 bg-dark p-3">
         <p className="text-center text-dark w-100 display-1 text-white ">
-          No products data...
+          No Books...
         </p>
       </div>
     );
