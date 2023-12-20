@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 const ProductForm = () => {
   const [data, setData] = useState({
     name: "",
@@ -20,6 +21,12 @@ const ProductForm = () => {
     price: "",
     amount: "",
     image: "",})
+    Swal.fire({
+      text:"New product added.",
+      icon:"success",
+      iconColor:"green",
+      confirmButtonText:"ok",
+      })
   };
 
   const postProduct = async (newProduct) => {

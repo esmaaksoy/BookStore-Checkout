@@ -30,6 +30,13 @@ const ProductList = () => {
     getProducts();
   }, []);
 
+  const updateProductAmount = (productId, newAmount) => {
+    setProduct(product?.map((item) => item.id === productId ? { ...item, amount: newAmount } : item
+      )
+    );
+  };
+
+
 
   if (loading) {
     return (
@@ -39,11 +46,10 @@ const ProductList = () => {
     );
   } else if (product?.length === 0) {
     return (
-      <div className="container mt-3">
-        {" "}
-        <p className="text-center text-danger w-100">
+      <div className="container mt-3 border border-dark border-2 bg-dark">
+        <p className="text-center text-dark w-100 display-1 text-white">
           No products data...
-        </p>{" "}
+        </p>
       </div>
     );
   } else {
@@ -57,6 +63,7 @@ const ProductList = () => {
                   item={item}
                   getProducts={getProducts}
                   updateTotal={updateTotal}
+                  updateProductAmount={updateProductAmount}
                 />
               ))}
             </article>

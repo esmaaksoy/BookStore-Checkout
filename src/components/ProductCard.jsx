@@ -1,13 +1,14 @@
 // name,image,id,price,amount,dumpingRate,
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const ProductCard = ({getProducts,item,updateTotal}) => {
+const ProductCard = ({getProducts,item,updateTotal,updateProductAmount}) => {
   const [total,setTotal]=useState("")
   const[count,setCount] =useState(item.amount)
 
   const handleTotal=()=>{
     setTotal(count * item.price)
     updateTotal(item.id, item.price * count)
+    updateProductAmount(item.id, count);
   }
 
 
@@ -25,7 +26,9 @@ handleTotal()
     }
     getProducts()
   }
+ 
   return (
+
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
         <div className="col-md-5">
